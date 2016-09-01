@@ -223,10 +223,10 @@ Add
   server {
       listen 443 ssl default_server;
       server_name demo.deseretbook.net;
- 
+
       ssl_certificate /etc/letsencrypt/live/demo.deseretbook.net/fullchain.pem;
       ssl_certificate_key /etc/letsencrypt/live/demo.deseretbook.net/privkey.pem;
- 
+
        location / {
         return 200 'gangnam style!';
       }
@@ -359,6 +359,7 @@ bundle exec puma -C config/puma.rb -e stage
 
 
 ### upstart scripts
+Edit
 ```
 sudo vim /etc/environment
 ```
@@ -366,16 +367,18 @@ Add
 ```
 RAILS_ENV=production
 ```
-
+Edit
 ```
 sudo vim /etc/puma.conf
 ```
+Edit
 ```
 /home/ubuntu/demo
 ```
 ```
 sudo vim /etc/init/puma-manager.conf
 ```
+Add
 ```
 # /etc/init/puma-manager.conf - manage a set of Pumas
 
@@ -409,10 +412,11 @@ pre-start script
   done
 end script
 ```
-
+Edit
 ```
 sudo vim /etc/init/puma.conf
 ```
+Add
 ```
 # /etc/init/puma.conf - Puma config
 
