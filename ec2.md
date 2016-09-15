@@ -101,9 +101,10 @@ sudo apt-get install git
 sudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
 ```
 ```
-sudo mkdir /etc/letsencrypt
+sudo mkdir -p /var/www/letsencrypt
 sudo chgrp www-data /etc/letsencrypt
-sudo mkdir /etc/letsencrypt/configs
+
+sudo mkdir -p /etc/letsencrypt/configs
 sudo vim /etc/letsencrypt/configs/demo.deseretbook.net.conf
 ```
 
@@ -363,6 +364,13 @@ Edit
 ```
 sudo vim /etc/environment
 ```
+Restarting the system will load the environment file when you login. That file is only read on login by pam_env.
+```
+. /etc/environment
+```
+```
+while read -r env; do export "$env"; done
+```
 Add
 ```
 RAILS_ENV=production
@@ -371,7 +379,7 @@ Edit
 ```
 sudo vim /etc/puma.conf
 ```
-Edit
+Add
 ```
 /home/ubuntu/demo
 ```
