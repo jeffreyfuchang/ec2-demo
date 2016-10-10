@@ -311,6 +311,14 @@ vim .ruby-version
 vim .ruby-gemset
 ```
 
+RVM should be run as a function
+```
+type rvm | head -n 1
+
+# should be
+rvm is a function
+```
+
 ### rails project
 
 ```
@@ -636,4 +644,16 @@ http {
   }
 
 }
+```
+### screen and rvm
+
+`https://rvm.io/workflow/screen`
+
+Edit
+```
+ ~/.screenrc
+```
+Add
+```
+shell -${SHELL}
 ```
